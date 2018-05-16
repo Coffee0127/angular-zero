@@ -135,10 +135,11 @@
         <!-- Search START-->
         <div class="widget search">
           <div class="widget-content">
-              <div id="searchbox">
-                <input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s">
-                <input type="button" value="搜尋" id="searchbutton">
-              </div>
+            <div id="searchbox">
+              <input (keyup)="countWords($event)" type="text" placeholder="請輸入搜尋關鍵字" accesskey="s">
+              <input type="button" value="搜尋" id="searchbutton">
+            </div>
+            <div>目前字數：{{ wordCounts }}</div>
           </div>
         </div>
         <!-- Search END -->
