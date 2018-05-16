@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'app';
   url = 'http://blog.miniasp.com/';
   imgurl = '/assets/images/logo.png';
-  wordCounts = 0;
+  keyword = '';
 
   constructor() {
   }
@@ -20,12 +20,7 @@ export class AppComponent {
     }
   }
 
-  countWords($event: KeyboardEvent) {
-    if ($event.keyCode === 27) {
-      (<HTMLInputElement> $event.target).value = '';
-      this.wordCounts = 0;
-      return;
-    }
-    this.wordCounts = (<HTMLInputElement> $event.target).value.length;
+  keywordReset() {
+    this.keyword = '';
   }
 }
