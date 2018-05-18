@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-article-list',
@@ -9,7 +10,7 @@ import { DataService } from '../data.service';
 export class ArticleListComponent implements OnInit {
 
   counter = 0;
-  data;
+  data$: Observable<any>;
 
   constructor(public dataService: DataService) { }
 
@@ -20,35 +21,32 @@ export class ArticleListComponent implements OnInit {
       this.counter++;
     }, 2000);
 
-    this.dataService.getData()
-      .subscribe(result => {
-        this.data = result;
-      });
+    this.data$ = this.dataService.getData();
   }
 
   doDelete(item) {
-    this.dataService.doDelete(item)
-      .subscribe(result => {
-        this.data = this.data.filter(v => v.id !== item.id);
-      }, error => {
-        console.log(error);
-      });
+    // this.dataService.doDelete(item)
+    //   .subscribe(result => {
+    //     this.data = this.data.filter(v => v.id !== item.id);
+    //   }, error => {
+    //     console.log(error);
+    //   });
   }
 
   doModify(post: any) {
-    this.dataService.doModify(post)
-      .subscribe(result => {
-        this.data = this.data.map(item => {
-          if (item.id === post.id) {
-            // 避免此種寫法!
-            // item.title = post.title;
-            return Object.assign({}, item, post);
-          }
-          return item;
-        });
-      }, error => {
-        console.log(error);
-      });
+    // this.dataService.doModify(post)
+    //   .subscribe(result => {
+    //     this.data = this.data.map(item => {
+    //       if (item.id === post.id) {
+    //         // 避免此種寫法!
+    //         // item.title = post.title;
+    //         return Object.assign({}, item, post);
+    //       }
+    //       return item;
+    //     });
+    //   }, error => {
+    //     console.log(error);
+    //   });
   }
 
 }
