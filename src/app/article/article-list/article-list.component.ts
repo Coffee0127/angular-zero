@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-article-list',
@@ -11,9 +12,11 @@ export class ArticleListComponent implements OnInit {
 
   counter = 0;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.run();
+
     setTimeout(() => {
       this.counter++;
     }, 2000);
