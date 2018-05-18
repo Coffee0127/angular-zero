@@ -4,7 +4,7 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticleHeaderComponent } from './article-header/article-header.component';
 import { ArticleBodyComponent } from './article-body/article-body.component';
 import { FormsModule } from '@angular/forms';
-import { DataService } from './data.service';
+// import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ DataService ],
+  // TODO 仍需撰寫 providers
+  // providers: [ DataService ],
   declarations: [ ArticleListComponent, ArticleHeaderComponent, ArticleBodyComponent ],
   exports: [ ArticleListComponent ]
 })

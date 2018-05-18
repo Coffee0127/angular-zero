@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ArticleModule } from './article.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: ArticleModule
 })
 export class DataService {
 
