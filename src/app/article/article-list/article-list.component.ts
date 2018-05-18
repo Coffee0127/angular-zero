@@ -9,9 +9,15 @@ export class ArticleListComponent implements OnInit {
 
   data: Array<any>;
 
+  counter = 0;
+
   constructor() { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.counter++;
+    }, 2000);
+
     this.data = [
       {
         "id": 1,
@@ -83,7 +89,7 @@ export class ArticleListComponent implements OnInit {
   }
 
   doDelete(item) {
-    this.data = this.data.filter(v => v !== item);
+    this.data = this.data.filter(v => v.id !== item.id);
   }
 
   changeTitle($event: any) {
