@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
 export class ArticleListComponent implements OnInit {
 
   counter = 0;
+  data;
 
   constructor(public dataService: DataService) { }
 
@@ -18,6 +19,36 @@ export class ArticleListComponent implements OnInit {
     setTimeout(() => {
       this.counter++;
     }, 2000);
+
+    this.dataService.getData()
+      .subscribe(result => {
+        this.data = result;
+      });
+  }
+
+  doDelete(item) {
+    this.dataService.doDelete(item)
+      .subscribe(result => {
+        this.data = this.data.filter(v => v.id !== item.id);
+      }, error => {
+        console.log(error);
+      });
+  }
+
+  doModify(post: any) {
+    this.dataService.doModify(post)
+      .subscribe(result => {
+        this.data = this.data.map(item => {
+          if (item.id === post.id) {
+            // 避免此種寫法!
+            // item.title = post.title;
+            return Object.assign({}, item, post);
+          }
+          return item;
+        });
+      }, error => {
+        console.log(error);
+      });
   }
 
 }

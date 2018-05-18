@@ -6,13 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  data;
-
   constructor(private http: HttpClient) {
-    this.http.get('/api/articles.json')
-      .subscribe(result => {
-        this.data = result;
-      });
+  }
+
+  getData() {
+    return this.http.get('/api/articles.json');
   }
 
   run() {
@@ -20,18 +18,11 @@ export class DataService {
   }
 
   doDelete(item) {
-    this.data = this.data.filter(v => v.id !== item.id);
+    return this.http.delete('/api/articles/' + item.id);
   }
 
   doModify(post: any) {
-    this.data = this.data.map(item => {
-      if (item.id === post.id) {
-        // 避免此種寫法!
-        // item.title = post.title;
-        return Object.assign({}, item, post);
-      }
-      return item;
-    });
+    return this.http.put('/api/articles/' + post.id, post);
   }
 
 }
