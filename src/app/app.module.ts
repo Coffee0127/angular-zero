@@ -1,10 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
-import { LoginModule } from './login/login.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
@@ -15,8 +14,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule,
-    LoginModule
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
