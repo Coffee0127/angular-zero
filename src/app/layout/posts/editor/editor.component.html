@@ -27,7 +27,7 @@
                 <i class="ion-close-round" (click)="removeTag(tagIndex)"></i> {{ tag.value }}</span>
             </div>
           </fieldset>
-          <button type="button" class="btn btn-lg btn-primary pull-xs-right" (click)="createPost()">
+          <button type="button" class="btn btn-lg btn-primary pull-xs-right" (click)="createPost()" [disabled]="postData.invalid">
             Create Post
           </button>
         </form>
