@@ -5,13 +5,11 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { NavComponent } from './nav/nav.component';
-import { PostsModule } from './posts/posts.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule,
-    PostsModule
+    RouterModule
   ],
   declarations: [ NavComponent, FooterComponent, MainComponent ],
   exports: [ NavComponent, FooterComponent ]
