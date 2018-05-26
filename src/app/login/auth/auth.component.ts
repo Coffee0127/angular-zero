@@ -14,7 +14,11 @@ export class AuthComponent implements OnInit {
   }
 
   doLogin() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/'], {
+      queryParams: {
+        'foo': 'bar'
+      }
+    });
   }
 
 }
