@@ -8,7 +8,9 @@
         {{ loginData | json }}
         <form>
           <fieldset class="form-group">
-            <input name="email" class="form-control form-control-lg" type="text" placeholder="Email" [(ngModel)]="loginData.email">
+            <input name="email" class="form-control form-control-lg" type="text" placeholder="Email" [(ngModel)]="loginData.email"
+              #email="ngModel">
+            {{ email.value }}
           </fieldset>
           <fieldset class="form-group">
             <input name="password" class="form-control form-control-lg" type="password" placeholder="Password" [(ngModel)]="loginData.password">
