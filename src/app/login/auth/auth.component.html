@@ -6,7 +6,7 @@
         <h1 class="text-xs-center">Sign in</h1>
 
         {{ loginData | json }}
-        <form>
+        <form #loginForm="ngForm">
           <fieldset class="form-group" [ngClass]="{'has-danger': email.dirty && email.errors}">
             <input name="email" class="form-control form-control-lg" type="text" placeholder="Email" [(ngModel)]="loginData.email"
               #email="ngModel"
@@ -29,7 +29,8 @@
               <span *ngIf="password.errors['minlength']">密碼長度不足</span>
             </span>
           </fieldset>
-          <button type="button" class="btn btn-lg btn-primary pull-xs-right" (click)="doLogin()">
+          <button type="button" class="btn btn-lg btn-primary pull-xs-right" (click)="doLogin()"
+            [disabled]="loginForm.invalid">
             Sign in
           </button>
         </form>
