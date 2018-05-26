@@ -18,8 +18,16 @@
               <span *ngIf="email.errors['email']">Email 格式不正確</span>
             </span>
           </fieldset>
-          <fieldset class="form-group">
-            <input name="password" class="form-control form-control-lg" type="password" placeholder="Password" [(ngModel)]="loginData.password">
+          <fieldset class="form-group" [ngClass]="{'has-danger': password.dirty && password.errors}">
+            <input name="password" class="form-control form-control-lg" type="password" placeholder="Password" [(ngModel)]="loginData.password"
+              #password="ngModel"
+              minlength="4"
+              required>
+            {{ password.invalid }}
+            <span *ngIf="password.dirty && password.errors">
+              <span *ngIf="password.errors['required']">請輸入密碼</span>
+              <span *ngIf="password.errors['minlength']">密碼長度不足</span>
+            </span>
           </fieldset>
           <button type="button" class="btn btn-lg btn-primary pull-xs-right" (click)="doLogin()">
             Sign in
