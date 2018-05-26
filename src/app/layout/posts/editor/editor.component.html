@@ -16,8 +16,8 @@
               #tag
               (keyup.enter)="addTag(tag.value)">
             <div class="tag-list">
-              <span class="label label-pill label-default" *ngFor="let tag of tags.controls">
-                <i class="ion-close-round"></i> {{ tag.value }}</span>
+              <span class="label label-pill label-default" *ngFor="let tag of tags.controls; let tagIndex = index">
+                <i class="ion-close-round" (click)="removeTag(tagIndex)"></i> {{ tag.value }}</span>
             </div>
           </fieldset>
           <button type="button" class="btn btn-lg btn-primary pull-xs-right">
