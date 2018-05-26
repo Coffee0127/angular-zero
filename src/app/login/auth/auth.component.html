@@ -7,10 +7,16 @@
 
         {{ loginData | json }}
         <form>
-          <fieldset class="form-group">
+          <fieldset class="form-group" [ngClass]="{'has-danger': email.dirty && email.errors}">
             <input name="email" class="form-control form-control-lg" type="text" placeholder="Email" [(ngModel)]="loginData.email"
-              #email="ngModel">
-            {{ email.value }}
+              #email="ngModel"
+              required
+              email>
+            {{ email.invalid }}
+            <span *ngIf="email.dirty && email.errors">
+              <span *ngIf="email.errors['required']">請輸入 Email</span>
+              <span *ngIf="email.errors['email']">Email 格式不正確</span>
+            </span>
           </fieldset>
           <fieldset class="form-group">
             <input name="password" class="form-control form-control-lg" type="password" placeholder="Password" [(ngModel)]="loginData.password">
