@@ -6,13 +6,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
+    path: 'login',
+    loadChildren: './login/login.module#LoginModule'
+  },
+  {
     path: '',
     component: MainComponent,
     loadChildren: './layout/posts/posts.module#PostsModule'
-  },
-  {
-    path: 'login',
-    loadChildren: './login/login.module#LoginModule'
   },
   {
     path: '**',
