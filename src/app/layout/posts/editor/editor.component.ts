@@ -28,4 +28,10 @@ export class EditorComponent implements OnInit {
     console.log(this.postData.get('title').value);
   }
 
+  addTag(tag: string) {
+    if (tag) {
+      this.tags.push(new FormControl(tag));
+    }
+  }
+
 }
