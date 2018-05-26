@@ -11,12 +11,12 @@ const routes: Routes = [
     component: PostsComponent
   },
   {
-    path: ':id',
-    component: PostComponent
-  },
-  {
     path: 'create',
     component: EditorComponent
+  },
+  {
+    path: ':id',
+    component: PostComponent
   }
 ];
 
