@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { EditorComponent } from './editor/editor.component';
@@ -11,7 +12,8 @@ import { PostsComponent } from './posts/posts.component';
   imports: [
     CommonModule,
     RouterModule,
-    PostsRoutingModule
+    PostsRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [ PostComponent, PostsComponent, EditorComponent ]
 })
