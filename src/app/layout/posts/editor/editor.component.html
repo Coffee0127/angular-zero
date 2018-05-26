@@ -10,7 +10,13 @@
             <span *ngIf="title.dirty && title.invalid">請輸入標題</span>
           </fieldset>
           <fieldset class="form-group">
-            <textarea class="form-control" rows="8" placeholder="Write your post (in markdown)"></textarea>
+            <textarea class="form-control" rows="8" placeholder="Write your post (in markdown)"
+              formControlName="body"></textarea>
+            <span *ngIf="body.dirty && body.invalid">
+              <span *ngIf="body.errors['required']">請輸入內文</span>
+              <span *ngIf="body.errors['minlength']">內文至少 {{ body.errors['minlength']['requiredLength'] }} 個字</span>
+            </span>
+            {{ body.errors | json }}
           </fieldset>
           <fieldset class="form-group">
             <input class="form-control" type="text" placeholder="Enter tags"
