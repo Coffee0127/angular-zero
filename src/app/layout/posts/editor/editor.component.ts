@@ -38,4 +38,8 @@ export class EditorComponent implements OnInit {
     this.tags.removeAt(index);
   }
 
+  createPost() {
+    console.log(this.postData.value);
+  }
+
 }
